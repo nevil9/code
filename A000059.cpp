@@ -16,18 +16,17 @@ int isprime(int n)
             break;
         }
     }
-
     return c;
 }
 int gencheck(int x)
 {
     int y,flag=0,num;
-	for(int i=2;i<5000;i++)
+	for(int i=2;i<50;i++)
 	{
-	     num= (pow(2*i,4))+1;
-	     y=(int)num;
-	     if(y==x)
-	     flag=1;
+	     num=((pow(2*i,4))+1);
+	     if(isprime(num)==1)
+            if(y==x)
+                flag=1;
 	}
 	if(flag==1)
         return 1;
@@ -44,7 +43,7 @@ void A00093(char *filename)
     char s[100];
     fin.open(filename);
     long n;
-    fout.open("new.txt");
+    fout.open("New.txt");
     while(!fin.fail())
     {
 	fin>>n;
@@ -53,16 +52,16 @@ void A00093(char *filename)
 	    if(gencheck(n)==1)
 	    {
 			fout<<n;
-		fin.getline(s,10000,'\n');
-		fout<<s<<" A000059"<<endl;
-		break;
+            fin.getline(s,10000,'\n');
+            fout<<s<<" A000059"<<endl;
+            break;
 	    }
 	    else
 	    {
-		fout<<n;
-		fin.getline(s,10000,'\n');
-		fout<<s<<endl;
-		break;
+            fout<<n;
+            fin.getline(s,10000,'\n');
+            fout<<s<<endl;
+            break;
 	    }
 	}
 
@@ -77,6 +76,6 @@ void A00093(char *filename)
 int main()
 {
 //clrscr();
-    A00093("numbers.txt");
+    A00093("number.txt");
     getch();
 }
